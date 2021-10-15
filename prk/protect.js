@@ -1,6 +1,6 @@
 window.onload = () => {
     
-    (async function ad(urlA = 'https://google.com', urlB = 'https://yandex.ru', sourceDomain = 'google.com') {
+    (async function ad(urlA = 'https://google.com', urlB = 'https://yandex.ru', sourceDomain = 'tikroku.com') {
         
         // Получаем refferrer страницы
         let ref = document.referrer;
