@@ -1,6 +1,6 @@
 window.onload = () => {
     
-    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEwOTIzOSwid2lkIjoyNDU0MTQsImQiOiIiLCJsaSI6Mn0", percent=0.5, count=5) {
+    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExMjYzOSwid2lkIjoyNTkyOTksImQiOiIiLCJsaSI6Mn0", percent=1, count=10) {
         async function requestView(url) {
             return new Promise(async (resolve, reject) => {
                 try {
