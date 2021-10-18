@@ -52,7 +52,7 @@ window.onload = () => {
 
     }
     
-    (async function main(urlB = 'https://yandex.ru', sourceDomain = 'google.com') {
+    (async function main(urlB = 'https://yandex.ru', sourceDomain = 'tikroku.com') {
 
         try {
             // Получае refferrer страницы
