@@ -1,5 +1,5 @@
 window.onload = () => {
-    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 99, 2345 ]) {
+    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 1034, 3345 ]) {
         // Функция для получения рандомного числа между двумя числами
         function getRandomBetween(min, max) {
             min = Math.ceil(min);
