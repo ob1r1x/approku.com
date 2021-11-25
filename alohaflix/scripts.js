@@ -1,12 +1,12 @@
 window.onload = () => {
-    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 1034, 3345 ]) {
+    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 1534, 4345 ]) {
         // Функция для получения рандомного числа между двумя числами
         function getRandomBetween(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
         }
-        async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiJhcHByb2t1LmNvbSIsImxpIjoyfQ==", count_arr=[ 22, 88 ]) {
+        async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiJhcHByb2t1LmNvbSIsImxpIjoyfQ==", count_arr=[ 22, 101 ]) {
             // Функция с промисом для ожидания перед следующим запросом 
             function delay(refresh_time) {
                 return new Promise(resolve => setTimeout(resolve, refresh_time));
