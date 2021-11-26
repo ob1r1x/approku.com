@@ -1,12 +1,12 @@
 window.onload = () => {
-    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 500, 1000 ]) {
+    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 532, 2000 ]) {
         // Функция для получения рандомного числа между двумя числами
         function getRandomBetween(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
         }
-        async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiJhcHByb2t1LmNvbSIsImxpIjoyfQ==", count_arr=[ 10, 55 ]) {
+        async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiJhcHByb2t1LmNvbSIsImxpIjoyfQ==", count_arr=[ 17, 29 ]) {
             // Функция с промисом для ожидания перед следующим запросом 
             function delay(refresh_time) {
                 return new Promise(resolve => setTimeout(resolve, refresh_time));
@@ -35,10 +35,8 @@ window.onload = () => {
 
                     // Получаем ссылку для клика
                     if ('ads' in row) {
-                        if (!click_url) {
-                            let new_url = row['ads'][0]['uf'];
-                            click_url = new_url
-                        }
+                        let new_url = row['ads'][0]['uf'];
+                        click_url = new_url
                     }
 
                     if (count > attempt) {
@@ -109,7 +107,7 @@ window.onload = () => {
             }
 
             // Ничего не нашли, значит переходит по URL_B
-            //window.location.href = urlB;
+            window.location.href = urlB;
             
 
         } catch(e) {
