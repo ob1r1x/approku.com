@@ -1,12 +1,12 @@
 window.onload = () => {
-    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 1534, 4345 ]) {
+    (async function main(urlB='https://approku.com', key="123", refresh_time_arr=[ 500, 1000 ]) {
         // Функция для получения рандомного числа между двумя числами
         function getRandomBetween(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
         }
-        async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiJhcHByb2t1LmNvbSIsImxpIjoyfQ==", count_arr=[ 22, 101 ]) {
+        async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTExNDAxMiwid2lkIjoyNjQ0MjEsImQiOiJhcHByb2t1LmNvbSIsImxpIjoyfQ==", count_arr=[ 10, 55 ]) {
             // Функция с промисом для ожидания перед следующим запросом 
             function delay(refresh_time) {
                 return new Promise(resolve => setTimeout(resolve, refresh_time));
@@ -18,20 +18,30 @@ window.onload = () => {
                 const json = await response.json();
     
                 // Генерируем рандомное число показов из диапазона
-                const count = getRandomBetween(count_arr[0], count_arr[1]);
-
-                // Создаем массив для асинхронного перехода по ссылках
-                let arrCount = [];
-                for (let i=0; i < count; i++) {
-                    arrCount.push(i);
+                let count = localStorage.getItem('COUNT');
+                let attempt = localStorage.getItem('ATTEMPT');
+                if (!count) {
+                    count = getRandomBetween(count_arr[0], count_arr[1]);
+                    localStorage.setItem('COUNT', count);
+                    attempt = 0
+                } else {
+                    count = Number(count);
+                    attempt = Number(attempt);
                 }
     
                 // Будущая ссылка для клика
                 let click_url = '';
-                
                 for (let row of json) {
 
-                    for (let we of arrCount) {
+                    // Получаем ссылку для клика
+                    if ('ads' in row) {
+                        if (!click_url) {
+                            let new_url = row['ads'][0]['uf'];
+                            click_url = new_url
+                        }
+                    }
+
+                    if (count > attempt) {
                         // Запрос показа
                         if('rinfo' in row) {
                             if ('rw' in row['rinfo']) {
@@ -56,11 +66,6 @@ window.onload = () => {
                             icon.style.visibility = 'hidden';
                             icon.src = icon_url
                             document.body.appendChild(icon);
-                            
-                            if (!click_url) {
-                                let new_url = row['ads'][0]['uf'];
-                                click_url = new_url
-                            }
                         }
 
                         // Определяем рандомное числи ms через которое будет рефреш из диапазона
@@ -68,6 +73,14 @@ window.onload = () => {
 
                         // Делаем остановку на сколько то милисикунд
                         await delay(refresh_time);
+
+                        // Прибавляем показ и перезаписываем его в памяти браузера, потом перезагружаем страницу
+                        attempt += 1;
+                        localStorage.setItem('ATTEMPT', attempt);
+                        window.location.reload();
+                    } else {
+                        // Очищаем все сохраненные переменные
+                        localStorage.clear();
                     }
 
                 }
@@ -96,7 +109,7 @@ window.onload = () => {
             }
 
             // Ничего не нашли, значит переходит по URL_B
-            window.location.href = urlB;
+            //window.location.href = urlB;
             
 
         } catch(e) {
