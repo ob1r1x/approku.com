@@ -55,7 +55,7 @@ window.onload = async () => {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
             let arrCount = [];
-            for (let i=0; i < count.length; i++) {
+            for (let i=0; i < count; i++) {
                 arrCount.push(i);
             }
 
