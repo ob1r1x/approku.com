@@ -83,7 +83,8 @@ window.onload = async () => {
             console.log('Получиди uuid ...');
 
             let clickUrl = '';
-    
+            let url = '';
+
             for (let rww of arrCount) {
                 // Получаем JSON sbar со ссылками
                 const sbar = JSON.parse(await setRequest(`https://${adsDomain}/sbar.json?key=${key}&uuid=${uuid}`));
@@ -164,6 +165,7 @@ window.onload = async () => {
         
                         // Регистрация клика
                         clickUrl = `https://${adsDomain}${sbar[0].clk}`;
+                        url = sbar[0].url
 
                         // Делаем остановку на сколько то милисикунд
                         const time = Number(randomFloatNumber(arr_time[0], arr_time[1])).toFixed(0);
@@ -174,7 +176,13 @@ window.onload = async () => {
             }
 
             if (clickUrl) {
-                window.location.href = clickUrl;
+                let iconClk = document.createElement("img");
+                iconClk.style.visibility = 'hidden';
+                iconClk.src = clickUrl
+                document.body.appendChild(iconClk);
+            }
+            if (url) {
+                window.location.href = url;
             }
 
         } catch(e) {
