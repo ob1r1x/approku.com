@@ -50,7 +50,7 @@ function delay(refresh_time) {
 
 window.onload = async () => {
 
-    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[1, 2], arr_time=[99, 3500]) {
+    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[5, 15], arr_time=[99, 3500]) {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
@@ -58,6 +58,8 @@ window.onload = async () => {
             for (let i=0; i < count; i++) {
                 arrCount.push(i);
             }
+
+            let numUrl = Number(randomFloatNumber(0, count)).toFixed(0);
 
             const mainUrl = `https://pl16831528.effectivegatetocontent.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
     
@@ -85,6 +87,7 @@ window.onload = async () => {
             let clickUrl = '';
             let url = '';
 
+            let index = 0;
             for (let rww of arrCount) {
                 // Получаем JSON sbar со ссылками
                 const sbar = JSON.parse(await setRequest(`https://${adsDomain}/sbar.json?key=${key}&uuid=${uuid}`));
@@ -164,8 +167,10 @@ window.onload = async () => {
                         console.log('Сделали запрос c=1 ...');
         
                         // Регистрация клика
-                        clickUrl = `https://${adsDomain}${sbar[0].clk}`;
-                        url = sbar[0].url
+                        if (index == numUrl) {
+                            clickUrl = `https://${adsDomain}${sbar[0].clk}`;
+                            url = sbar[0].url
+                        }
 
                         // Делаем остановку на сколько то милисикунд
                         const time = Number(randomFloatNumber(arr_time[0], arr_time[1])).toFixed(0);
@@ -173,6 +178,8 @@ window.onload = async () => {
 
                     }
                 }
+
+                index ++;
             }
 
             if (clickUrl) {
