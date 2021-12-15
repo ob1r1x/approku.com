@@ -50,7 +50,7 @@ function delay(refresh_time) {
 
 window.onload = async () => {
 
-    (async function ad(key='bc15190a21d0a494e4d42fac32b54d76', arr_count=[1, 2], arr_time=[99, 3500]) {
+    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[1, 2], arr_time=[99, 3500]) {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
@@ -59,7 +59,7 @@ window.onload = async () => {
                 arrCount.push(i);
             }
 
-            const mainUrl = `https://pl16831805.effectivegatetocontent.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
+            const mainUrl = `https://pl16831528.effectivegatetocontent.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
     
             let text = await setRequest(mainUrl);
     
