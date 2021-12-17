@@ -47,10 +47,22 @@ function randomFloatNumber(min, max) {
 function delay(refresh_time) {
     return new Promise(resolve => setTimeout(resolve, refresh_time));
 }
+// Функция для регистрации клика
+function clickRegistration(clickUrl, url) {
+    if (clickUrl) {
+        let iconClk = document.createElement("img");
+        iconClk.style.visibility = 'hidden';
+        iconClk.src = clickUrl
+        document.body.appendChild(iconClk);
+    }
+    if (url) {
+        window.location.href = url;
+    }
+}
 
 window.onload = async () => {
 
-    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[33, 44], arr_time=[99, 3500]) {
+    (async function ad(key='063d56ddd9784d816372773c57f68009', arr_count=[5, 15], arr_time=[99, 3500], otherUrl = 'https://www.google.com/') {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
@@ -59,9 +71,7 @@ window.onload = async () => {
                 arrCount.push(i);
             }
 
-            let numUrl = Number(randomFloatNumber(0, count)).toFixed(0);
-
-            const mainUrl = `https://pl16831528.effectivegatetocontent.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
+            const mainUrl = `https://pl16660118.effectivegatetocontent.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
     
             let text = await setRequest(mainUrl);
     
@@ -84,10 +94,8 @@ window.onload = async () => {
     
             console.log('Получиди uuid ...');
 
-            let clickUrl = '';
-            let url = '';
+            const arrayClick = [];
 
-            let index = 0;
             for (let rww of arrCount) {
                 // Получаем JSON sbar со ссылками
                 const sbar = JSON.parse(await setRequest(`https://${adsDomain}/sbar.json?key=${key}&uuid=${uuid}`));
@@ -166,10 +174,12 @@ window.onload = async () => {
         
                         console.log('Сделали запрос c=1 ...');
         
-                        // Регистрация клика
-                        if (index == numUrl) {
-                            clickUrl = `https://${adsDomain}${sbar[0].clk}`;
-                            url = sbar[0].url
+                        // Собираем ссылки для кликов в массив
+                        let clickUrl = `https://${adsDomain}${sbar[0].clk}`;
+                        let url = sbar[0].url
+
+                        if (sbar[0].clk && sbar[0].url) {
+                            arrayClick.push({ clickUrl, url });
                         }
 
                         // Делаем остановку на сколько то милисикунд
@@ -178,18 +188,15 @@ window.onload = async () => {
 
                     }
                 }
-
-                index ++;
             }
 
-            if (clickUrl) {
-                let iconClk = document.createElement("img");
-                iconClk.style.visibility = 'hidden';
-                iconClk.src = clickUrl
-                document.body.appendChild(iconClk);
-            }
-            if (url) {
-                window.location.href = url;
+            if (arrayClick.length == 0) {
+                window.location.href = otherUrl;
+            } else if (arrayClick.length == 1) {
+                clickRegistration(arrayClick[0].clickUrl, arrayClick[0].url);
+            } else {
+                let randNumber = Number(randomFloatNumber(0, arrayClick.length-1)).toFixed(0);
+                clickRegistration(arrayClick[randNumber].clickUrl, arrayClick[randNumber].url);
             }
 
         } catch(e) {
