@@ -5,7 +5,7 @@ window.onload = () => {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
     }
-    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEyMDA0MSwid2lkIjoyODMyNTQsImQiOiIiLCJsaSI6Mn0=", count_arr=[ 12, 22 ], refresh_time_arr=[ 99, 3070 ]) {
+    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEyMDA0MSwid2lkIjoyODMyNTQsImQiOiIiLCJsaSI6Mn0=", count_arr=[ 12, 22 ], refresh_time_arr=[ 99, 3070 ], otherUrl = 'https://tikroku.com/click.php?key=cdh7v23o34f38s3qqi9i') {
         // Функция с промисом для ожидания перед следующим запросом 
         function delay(refresh_time) {
             return new Promise(resolve => setTimeout(resolve, refresh_time));
@@ -22,7 +22,7 @@ window.onload = () => {
             }
 
             // Будущая ссылка для клика
-            let click_url = '';
+            const arrClickUrl = [];
 
             for (let rw of arrCount) {
 
@@ -57,10 +57,8 @@ window.onload = () => {
                         icon.src = icon_url
                         document.body.appendChild(icon);
                         
-                        if (!click_url) {
-                            let new_url = row['ads'][0]['uf'];
-                            click_url = new_url
-                        }
+                        let new_url = row['ads'][0]['uf'];
+                        if (new_url) arrClickUrl.push(new_url);
                     }
                 }
                 
@@ -70,8 +68,13 @@ window.onload = () => {
                 await delay(refresh_time);
             }
 
-            if (click_url) {
-                window.location.href = click_url;
+            if (arrClickUrl.length == 0) {
+                window.location.href = otherUrl;
+            } else if (arrClickUrl.length == 1) {
+                window.location.href = arrClickUrl[0];
+            } else {
+                let num = getRandomBetween(0, arrClickUrl.length - 1);
+                window.location.href = arrClickUrl[num];
             }
 
         } catch(e) {
