@@ -5,7 +5,7 @@ window.onload = () => {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
     }
-    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEyMDA0MSwid2lkIjoyODMyNTQsImQiOiIiLCJsaSI6Mn0=", count_arr=[ 9, 19 ], refresh_time_arr=[ 99, 3070 ], otherUrl = 'https://tikroku.com/click.php?key=cdh7v23o34f38s3qqi9i') {
+    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEyMTMyNCwid2lkIjoyODc4MzgsImQiOiIiLCJsaSI6Mn0=", count_arr=[ 9, 19 ], refresh_time_arr=[ 99, 3070 ], otherUrl = 'https://tikroku.com/click.php?key=cdh7v23o34f38s3qqi9i') {
         // Функция с промисом для ожидания перед следующим запросом 
         function delay(refresh_time) {
             return new Promise(resolve => setTimeout(resolve, refresh_time));
