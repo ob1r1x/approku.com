@@ -62,7 +62,7 @@ function clickRegistration(clickUrl, url) {
 
 window.onload = async () => {
 
-    (async function ad(key='063d56ddd9784d816372773c57f68009', arr_count=[5, 15], arr_time=[99, 3500], otherUrl = 'https://www.google.com/') {
+    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[5, 15], arr_time=[99, 3500], otherUrl = 'https://www.google.com/') {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
@@ -71,7 +71,7 @@ window.onload = async () => {
                 arrCount.push(i);
             }
 
-            const mainUrl = `https://pl16660118.effectivegatetocontent.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
+            const mainUrl = `https://pl16831528.trustedcpmrevenue.com/${key.substring(0, 2)}/${key.substring(2, 4)}/${key.substring(4, 6)}/${key}.js`;
     
             let text = await setRequest(mainUrl);
     
