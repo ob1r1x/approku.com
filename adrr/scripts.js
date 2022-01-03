@@ -62,7 +62,7 @@ function clickRegistration(clickUrl, url) {
 
 window.onload = async () => {
 
-    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[5, 15], arr_time=[99, 3500], otherUrl = 'https://www.google.com/') {
+    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[15, 25], arr_time=[99, 3500], otherUrl = 'https://www.google.com/') {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
