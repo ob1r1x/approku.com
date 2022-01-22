@@ -5,7 +5,7 @@ window.onload = () => {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
     }
-    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEyNTI4Nywid2lkIjoyOTY5NDIsImQiOiIiLCJsaSI6Mn0=", count_arr=[ 13, 20 ], refresh_time_arr=[ 1, 2070 ], otherUrl = 'https://datinghookup.life/?u=5n7nn7n&o=gkhpf99') {
+    (async function ad(text="aeyJwaWQiOjEwMjMzOTMsInNpZCI6MTEyNTU1MSwid2lkIjoyOTc0NzUsImQiOiIiLCJsaSI6Mn0=", count_arr=[ 13, 20 ], refresh_time_arr=[ 1, 2070 ], otherUrl = 'https://datinghookup.life/?u=5n7nn7n&o=gkhpf99') {
         // Функция с промисом для ожидания перед следующим запросом 
         function delay(refresh_time) {
             return new Promise(resolve => setTimeout(resolve, refresh_time));
